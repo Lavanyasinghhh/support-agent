@@ -1,5 +1,7 @@
 # Customer support agent with guardrails and evaluation
 
+[![tests](https://github.com/Lavanyasinghhh/support-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/Lavanyasinghhh/support-agent/actions/workflows/tests.yml)
+
 A customer-service chatbot for a fictional Australian outdoor store, Koala Gear. It looks up orders, processes refunds within policy, answers questions from a help centre (RAG), and hands over to a human when it isn't confident.
 
 My university capstone was a multi-agent chatbot for airline customer service. This repo rebuilds the same ideas from scratch in a retail setting: intent classification, policy retrieval, escalation and evaluation. It focuses on the part I found most interesting, **making the agent reliable and measuring it**, not just making it talk.
@@ -38,6 +40,7 @@ message ──► Guardrails ──► Intent router ──► Action ──► 
 
 - **Rules for money, ML for language.** Refund decisions are deterministic Python. The ML only decides what the customer is asking for. That way a misunderstanding leads to a wrong question, not a wrong refund.
 - **Escalation is a feature.** When retrieval confidence is low, the agent hands over rather than answering. In customer service, a confident wrong answer costs more than a hand-off.
+- **Built for more than one user.** The models and help-centre index load once at startup and are shared. Each browser gets a random session ID, and the only per-conversation state (what the agent is waiting for) is stored per session behind a lock. There are tests for two users chatting at once and for 64 concurrent conversations.
 - **Safe default when unsure.** If the router is unsure and the message contains an order number, the agent does a read-only order lookup, which can't change anything.
 
 ## Evaluation
@@ -78,7 +81,7 @@ pip install -r requirements.txt
 
 python cli.py              # chat in the terminal
 python app.py              # web UI at http://localhost:5000
-python -m unittest         # 12 unit tests
+python -m unittest         # 16 tests, including multi-user isolation
 python -m eval.run_eval    # regenerate eval/results.md
 ```
 

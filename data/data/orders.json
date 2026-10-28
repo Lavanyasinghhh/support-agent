@@ -1,8 +1,0 @@
-{
-  "KG1001": {"customer": "Alex", "status": "delivered", "delivered_on": "2026-10-10", "total": 129.00, "items": ["Trailhead 30L backpack"], "final_sale": false},
-  "KG1002": {"customer": "Sam", "status": "dispatched", "dispatched_on": "2026-10-24", "tracking": "AP84731920", "total": 64.50, "items": ["Merino beanie", "Camp mug"], "final_sale": false},
-  "KG1003": {"customer": "Priya", "status": "processing", "total": 349.00, "items": ["Summit 2-person tent"], "final_sale": false},
-  "KG1004": {"customer": "Jordan", "status": "delivered", "delivered_on": "2026-08-01", "total": 89.95, "items": ["Rain shell jacket"], "final_sale": false},
-  "KG1005": {"customer": "Mei", "status": "delivered", "delivered_on": "2026-10-20", "total": 45.00, "items": ["Clearance hiking socks (3 pack)"], "final_sale": true},
-  "KG1006": {"customer": "Chris", "status": "delivered", "delivered_on": "2026-10-18", "total": 249.00, "items": ["Down sleeping bag"], "final_sale": false}
-}
